@@ -10,7 +10,7 @@ class TicTacToe:
 
 
 	def __repr__(self):
-		# TODO: consider not using for loops
+		# TODO: consider not using loops
 		board_str = ""
 		for row_idx, row in enumerate(self.board):
 			if row_idx:
@@ -33,6 +33,7 @@ class TicTacToe:
 
 	def check_win(self):
 		# Below, iterating through the rows, columns, diagonals
+		# TODO: consider breaking up so as not to create every single line before possibly returning
 		for line in np.row_stack((self.board, self.board.T, np.diag(self.board), np.diag(self.board))):
 			line_unique_count = np.unique(line).size			# line=[NaN, NaN, NaN] will result in 3
 			if line_unique_count == 1:
